@@ -168,12 +168,14 @@ def main(argv):
                     # logger.info(templateJson)
                     res = json_decode(http_post(output + "/" + key, templateJson))
                     if res != None and res != '' and res != "err":
-                        if res["acknowledged"] == 'true':
-                            # print "Create  template %s" % key, "Successfully!"
-                            logger.info("Create  template {} Successfully!".format(key))
+                        # logger.info(res)
+                        # logger.info(res["acknowledged"])
+                        if res["acknowledged"] == True:
+                            # print "Create template %s" % key, "Successfully!"
+                            logger.info("Create template {} Successfully!".format(key))
                         else:
-                            # print "Create  template %s" % key, "Fail!"
-                            logger.info("Create  template {} Fail!".format(key))
+                            # print "Create template %s" % key, "Fail!"
+                            logger.info("Create template {} Fail!".format(key))
 
 if __name__ == '__main__':
     init_logger("./main.log")
